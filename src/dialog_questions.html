@@ -1,0 +1,58 @@
+<link rel="import" href="/bower_components/polymer/polymer.html">
+<link rel="import" href="/bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="/bower_components/paper-button/paper-button.html">
+<link rel="import" href="/bower_components/paper-input/paper-input.html">
+
+<dom-module id="dialog-question">
+
+  <template>
+    <style media="screen">
+      #button{
+        background: #E91E63;
+        color: #fff;
+        margin-top: 10px;
+        width: 150px;
+        height: 40px;
+      }
+    </style>
+    <paper-button id="button" raised on-tap="_openDialog">Nuevo foro</paper-button>
+
+     <paper-dialog id="dialog" forums="{{forums}}">
+       <h2>Agrega un foro</h2>
+
+       <paper-input id="titleVal" value="{{title}}" label="Titulo"></paper-input>
+       <paper-input id="questionVal" value="{{question}}" label="Ṕregunta"></paper-input>
+
+   	  <div class="buttons">
+   	    <paper-button dialog-dismiss>Cancelar</paper-button>
+   	    <paper-button dialog-confirm autofocus on-tap="_saveQuestion">Agregar</paper-button>
+   	  </div>
+
+   	</paper-dialog>
+
+  </template>
+
+  <script>
+    class Question extends Polymer.Element {
+      static get is() { return "dialog-question"; }
+
+      _openDialog(event){
+        this.$.dialog.open();
+      }
+
+      _saveQuestion(event){
+        this._cleanInputs();
+      }
+
+      _cleanInputs(){
+        console.log("cleaned");
+        this.title = ""
+        this.question = ""
+      }
+
+    }
+    customElements.define(Question.is, Question);
+
+  </script>
+
+</dom-module>
