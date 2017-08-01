@@ -1,0 +1,7 @@
+{
+  "name": "Forum polymer",
+  "private": true,
+  "dependencies":{
+		"Polymer/polymer":"#2.0.2"
+	}
+}
