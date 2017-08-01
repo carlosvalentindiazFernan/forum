@@ -1,0 +1,36 @@
+<link rel="import" href="/bower_components/polymer/polymer.html">
+<link rel="import" href="listnav.html">
+<link rel="import" href="nav.html">
+
+<dom-module id="forum-container">
+  <template>
+      <span>Item count: </span><span>[[itemArray.length]]</span>
+      <forum-nav item-array="{{itemArray}}"></forum-nav>
+  </template>
+  <script>
+  (function container() {
+    'use strict';
+
+    class ForumContainer extends Polymer.Element {
+
+      static get is (){ return 'forum-container' }
+
+      static get properties(){
+        return{
+          itemArray:{
+            type: Array,
+          }
+        };
+
+      }
+
+      _changeArray(){
+        this.itemArray = [4,5,6,7,8,9];
+      }
+
+    }
+
+    customElements.define(ForumContainer.is, ForumContainer);
+  })();
+  </script>
+</dom-module>

@@ -1,0 +1,38 @@
+<link rel="import" href="/bower_components/polymer/polymer.html">
+<link rel="import" href="listnav.html">
+
+<dom-module id="forum-nav">
+  <template>
+    <template is="dom-repeat" items="[[itemArray]]">
+        <div>[[item]]</div>
+      </template>
+      <div on-click="_changeArray">Change</div>
+  </template>
+  <script>
+  (function nav() {
+    'use strict';
+
+    class ForumNav extends Polymer.Element {
+
+      static get is (){ return 'forum-nav' }
+
+      static get properties(){
+        return{
+          itemArray:{
+            type: Array,
+            notify: true
+          }
+        };
+
+      }
+
+      _changeArray(){
+        this.itemArray = [4,5,6,7,8,9];
+      }
+
+    }
+
+    customElements.define(ForumNav.is, ForumNav);
+  })();
+  </script>
+</dom-module>
